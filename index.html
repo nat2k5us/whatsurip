@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Display IP Address</title>
+    <style>
+        body {
+            background-color: black;
+            color: #39FF14; /* Fluorescent green color */
+            text-align: center; /* Centers the content */
+        }
+        #ipAddress {
+            font-size: 256px;
+        }
+    </style>
+    <script>
+        async function fetchIP() {
+            const response = await fetch('https://api.ipify.org?format=json');
+            const data = await response.json();
+            document.getElementById('ipAddress').innerText = data.ip;
+        }
+    </script>
+</head>
+<body onload="fetchIP()">
+    <h1> Your IP Address </h1>
+    <div id="ipAddress"></div>
+</body>
+</html>
